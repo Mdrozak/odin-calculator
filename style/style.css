@@ -1,0 +1,46 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc.container {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 40rem;
+    border: 5px solid black;
+}
+
+.display {
+    display: flex;
+    width: 90%;
+    height: 20%;
+    border: 2px solid black;
+    margin: 5%;
+}
+
+.panel {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    height: 80%;
+    border: 2px solid green;
+    margin: 0 auto 10px;
+
+}
+
+.inp {
+    flex: 1;
+    border: 10px solid rgb(110, 107, 107);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3.5em;
+    text-align: right;
+    padding: 20px 0px 0px 30px
+}
+
+.btn {
+    width: 20%;
+    height: 20%;
+    margin: 10px;
+}
