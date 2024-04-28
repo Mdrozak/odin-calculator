@@ -1,7 +1,10 @@
 
+const calcDivPanel = document.querySelector(".panel")
+const calcDivDisplay = document.querySelector(".inp")
 const firstOperand = 0
 const secondOperand = 0
-const operator = "+"
+const operator = ""
+let displayValue = ""
 
 
 
@@ -31,3 +34,8 @@ function operate (operator, firstNumber, secondNumber) {
     operator === "*" ? multiply(firstNumber, secondNumber) :
     operator === "/" ? divide(firstNumber, secondNumber) : ""
 }
+
+calcDivPanel.addEventListener("click", function(element){
+    displayValue += element.target.textContent
+    calcDivDisplay.textContent = displayValue
+})
