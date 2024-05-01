@@ -31,7 +31,7 @@ function divide (number1, number2) {
 
 function operate (operator, firstNumber, secondNumber) {
     if (operator === "/" && firstNumber === secondNumber) {
-       console.log("damn, don't divide by zero! Clearing all state")
+        alert("damn, don't divide by zero! Clearing all state")
         clearAll()
     }
     else {
@@ -46,7 +46,17 @@ function operate (operator, firstNumber, secondNumber) {
 }
 
 function onClickChangeBackground (element, state) {
-    return state === "on" ? element.style.background = "green" : element.style.background = ""
+    if (state === "on") {
+        element.style.background = "green"
+    }
+    else if (element.style.background === "green"){
+        element.style.background = ""
+        clickedOperator = ""
+    }
+    else {
+        return;
+    }
+    
 }
 
 function clearAll () {
@@ -82,17 +92,17 @@ calcDivPanel.addEventListener("click", function(element){
     }
     else if (element.target.className === "btn equals" || element.target.className === "btn operator") {
         if (element.target.className === "btn equals" && operator === "" && firstOperand === 0 && secondOperand === 0) {
-            return false
+            return;
         }
         else if (element.target.className === "btn operator" && operator !== "" && clickedOperator === "" ) {
-            return false
+            return;
         }
         else if (element.target.className === "btn operator" && displayValue === "") {
-            return false
+            return;
         }
         else {
             displayValue = operate(operator, firstOperand, secondOperand).toString() ?? ""
-            onClickChangeBackground(clickedOperator, "off")
+            clickedOperator === "" ? false : onClickChangeBackground(clickedOperator, "off")
             firstOperand = displayValue
             operator = ""
             calcDivDisplay.textContent = displayValue
